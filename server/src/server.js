@@ -17,6 +17,24 @@ app.get("/error", (req, res) => {
   throw new Error("error from /error route");
 });
 
+// POST ROUTES
+
+app.post("/api/players", (req, res) => {
+  try {
+    const { name, age } = req.body;
+    if (!name || !name.trim()) { 
+      return res.status(400).json({
+        error: 'Name is required'
+      })
+    }
+    // throw new Error('sup 3pm');
+  } catch (err) {
+    res.status(500).json({
+      error: err.message
+    });
+  }
+});
+
 app.use((req, res) => {
   res.status(404).send("The page you're looking for does not exist");
 });

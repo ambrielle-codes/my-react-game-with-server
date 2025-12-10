@@ -1,2 +1,13 @@
 # test-api.http
+
+### Get Route Test
+GET http:/localhost:3000/
+
 ### Create Player
+Post http://localhost:3000/api/players
+Content-Type: application/json
+
+{
+    "name": "Ambrielle",
+    "age": 18
+}
